@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "120471985487",
+    "project_id": "aplicativotcc-c0602",
+    "storage_bucket": "aplicativotcc-c0602.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:120471985487:android:a25d80af11e2db47c6793a",
+        "android_client_info": {
+          "package_name": "com.example.aplicativotcc"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAt8Q-mhgxHcf-peA30Vzwfb7rxGkB48DU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
