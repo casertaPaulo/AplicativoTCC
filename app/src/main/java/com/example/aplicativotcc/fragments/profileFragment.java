@@ -2,6 +2,8 @@ package com.example.aplicativotcc.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.transition.Slide;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,15 @@ public class profileFragment extends Fragment {
         EmailUser = view.findViewById(R.id.EmailUser);
         bt_deslogar = view.findViewById(R.id.bt_deslogar);
 
+        // Definir animações de transição para o fragmento
+        Slide slide = new Slide(Gravity.START); // Alterado para Gravity.START
+        slide.setDuration(300);
+        setEnterTransition(slide);
+
+        Slide slideExit = new Slide(Gravity.END); // Alterado para Gravity.END
+        slideExit.setDuration(300);
+        setExitTransition(slideExit);
+
         //define um evento escutador que verifica se o botão deslogar foi acionado e depois cria uma intenção que nos manda para a tela de login
         bt_deslogar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,5 +76,7 @@ public class profileFragment extends Fragment {
             }
         });
     }
+
+
 
 }

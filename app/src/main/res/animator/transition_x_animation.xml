@@ -1,8 +1,0 @@
-<!-- slide_left.xml -->
-<set xmlns:android="http://schemas.android.com/apk/res/android">
-    <objectAnimator
-        android:propertyName="translationX"
-        android:valueFrom="100%"
-        android:valueTo="0%"
-        android:duration="300"/>
-</set>

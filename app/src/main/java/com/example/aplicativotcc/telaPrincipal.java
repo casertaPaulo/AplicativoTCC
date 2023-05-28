@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
@@ -16,9 +17,11 @@ import androidx.viewpager2.widget.ViewPager2;
 
 import android.gesture.Gesture;
 import android.os.Bundle;
+import android.transition.Slide;
 import android.util.Log;
 import android.util.SparseArray;
 import android.view.GestureDetector;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 
@@ -37,6 +40,7 @@ public class telaPrincipal extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_principal);
+
 
         //Configuração do ButtomNavigation e fragmentos
         bottomNavigationView = findViewById(R.id.bottom_navigation);
@@ -151,6 +155,7 @@ public class telaPrincipal extends AppCompatActivity {
                         if (currentFragmentIndex > 0) {
                             viewPager.setCurrentItem(currentFragmentIndex - 1);
                             Log.d("OnFling", "deslizamento para a direita"); // Debug log
+                            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                             return true;
                         }
                     } else {
@@ -160,7 +165,6 @@ public class telaPrincipal extends AppCompatActivity {
                             viewPager.setCurrentItem(currentFragmentIndex + 1);
                             Log.d("OnFling", "deslizamento para a esquerda"); // Debug log
 
-                            return true;
                         }
                     }
                 }
