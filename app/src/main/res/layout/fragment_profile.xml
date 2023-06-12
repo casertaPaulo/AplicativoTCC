@@ -1,17 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#194569"
+    android:background="#0d46af"
     tools:context=".fragments.profileFragment">
 
     <!-- TODO: Update blank fragment layout -->
-    <ImageView
+
+    <View
+        android:id="@+id/containerUser"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/ic_profile"
-        android:layout_gravity="center"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/container_user"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/containerProfile"
+        style="@style/containerProfile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerUser"
+        android:background="@drawable/container_profile"
         />
 
-</FrameLayout>
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+
+        android:src="@drawable/ic_userlogo"
+        app:layout_constraintBottom_toBottomOf="@id/containerUser"
+        app:layout_constraintEnd_toEndOf="@id/containerUser"
+        app:layout_constraintStart_toStartOf="@id/containerUser"
+        app:layout_constraintTop_toTopOf="@id/containerUser" />
+
+    <ImageView
+        android:id="@+id/iconeUser"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="55dp"
+        android:src="@drawable/ic_user"
+        app:layout_constraintStart_toStartOf="@id/containerProfile"
+        app:layout_constraintTop_toTopOf="@id/containerProfile" />
+
+    <TextView
+        android:id="@+id/NomeUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="88dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iconeUser"
+        app:layout_constraintTop_toBottomOf="@id/containerUser" />
+
+    <ImageView
+        android:id="@+id/iconeEmail"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_email"
+        app:layout_constraintStart_toStartOf="@id/containerProfile"
+        app:layout_constraintTop_toBottomOf="@id/iconeUser" />
+
+    <TextView
+        android:id="@+id/EmailUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="55dp"
+        android:text=""
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@id/iconeUser"
+        app:layout_constraintTop_toBottomOf="@id/NomeUser" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/bt_deslogar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="100dp"
+        android:drawableRight="@drawable/ic_logoff"
+        android:gravity="center_vertical"
+        android:padding="15dp"
+        android:textSize="17sp"
+        android:text="Deslogar"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@drawable/button_deslogar"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -5,7 +5,7 @@
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
 
         <item name="colorPrimary">@color/black</item>
-        <item name="colorPrimaryVariant">#194569</item>
+        <item name="colorPrimaryVariant">#0d46af</item>
 
         <item name="android:statusBarColor" tools:targetApi="1">?attr/colorPrimaryVariant</item>
 
