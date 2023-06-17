@@ -54,8 +54,10 @@
 
  <style name="containerProfile">
   <item name="android:layout_width">match_parent</item>
-  <item name="android:layout_height">250dp</item>
-  <item name="android:layout_margin">20dp</item>
+  <item name="android:layout_height">350dp</item>
+  <item name="android:topLeftRadius">0dp</item>
+  <item name="android:topRightRadius">0dp</item>
+
   <item name="background">@drawable/container_profile</item>
  </style>
 

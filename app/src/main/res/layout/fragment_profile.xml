@@ -4,87 +4,115 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0d46af"
+    android:background="#e6f5fc"
     tools:context=".fragments.profileFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
     <View
-        android:id="@+id/containerUser"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="50dp"
-        android:background="@drawable/container_user"
+        android:id="@+id/containerProfile"
+        style="@style/containerProfile"
+        android:background="@drawable/container_profile"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/containerProfile"
-        style="@style/containerProfile"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/barra_tela_perfil"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerUser"
-        android:background="@drawable/container_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/containerProfile" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perfil"
+        android:textStyle="bold"
+        android:textSize="25sp"
+        app:layout_constraintTop_toTopOf="@id/view"
+        app:layout_constraintBottom_toBottomOf="@id/view"
+        app:layout_constraintStart_toStartOf="@id/view"
+        android:layout_marginStart="30dp"
+        android:textColor="#0d46af"
         />
 
+    <View
+        android:id="@+id/containerUser"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:background="@drawable/container_user"
+        android:layout_marginBottom="30dp"
+        app:layout_constraintBottom_toBottomOf="@+id/containerProfile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="50dp"
         android:layout_height="50dp"
-
         android:src="@drawable/ic_userlogo"
         app:layout_constraintBottom_toBottomOf="@id/containerUser"
         app:layout_constraintEnd_toEndOf="@id/containerUser"
         app:layout_constraintStart_toStartOf="@id/containerUser"
         app:layout_constraintTop_toTopOf="@id/containerUser" />
 
-    <ImageView
-        android:id="@+id/iconeUser"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="55dp"
-        android:src="@drawable/ic_user"
-        app:layout_constraintStart_toStartOf="@id/containerProfile"
-        app:layout_constraintTop_toTopOf="@id/containerProfile" />
-
     <TextView
         android:id="@+id/NomeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="88dp"
-        android:text=""
-        android:textColor="@color/black"
-        android:textSize="18sp"
+        android:layout_marginTop="5dp"
+        android:text="-"
+        android:textColor="@color/white"
+        android:textSize="40sp"
         android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/iconeUser"
-        app:layout_constraintTop_toBottomOf="@id/containerUser" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerUser"
+        />
 
-    <ImageView
-        android:id="@+id/iconeEmail"
-        android:layout_width="50dp"
+
+    <View
+        android:id="@+id/container_info"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:layout_marginLeft="30dp"
-        android:layout_marginTop="30dp"
-        android:src="@drawable/ic_email"
-        app:layout_constraintStart_toStartOf="@id/containerProfile"
-        app:layout_constraintTop_toBottomOf="@id/iconeUser" />
+        app:layout_constraintTop_toBottomOf="@id/containerProfile"
+        android:background="@drawable/tela_perfil"
+
+        />
+
 
     <TextView
         android:id="@+id/EmailUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="55dp"
-        android:text=""
+        android:text="-"
         android:textColor="@color/black"
+        android:layout_marginEnd="30dp"
         android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@id/iconeUser"
-        app:layout_constraintTop_toBottomOf="@id/NomeUser" />
+        app:layout_constraintEnd_toEndOf="@id/container_info"
+        app:layout_constraintTop_toTopOf="@id/container_info"
+        app:layout_constraintBottom_toBottomOf="@id/container_info"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#929ca5"
+        android:textSize="18sp"
+        android:layout_marginStart="30dp"
+        app:layout_constraintStart_toStartOf="@id/container_info"
+        app:layout_constraintBottom_toBottomOf="@id/container_info"
+        app:layout_constraintTop_toTopOf="@id/container_info"
+
+        />
+
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_deslogar"
@@ -92,13 +120,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_marginBottom="100dp"
-        android:drawableRight="@drawable/ic_logoff"
-        android:gravity="center_vertical"
+        android:layout_marginBottom="50dp"
         android:padding="15dp"
-        android:textSize="17sp"
+        android:textSize="20sp"
         android:text="Deslogar"
-        android:textColor="@color/white"
+        android:textColor="#0d46af"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
