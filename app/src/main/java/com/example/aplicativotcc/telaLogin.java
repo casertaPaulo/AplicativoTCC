@@ -31,18 +31,19 @@ public class telaLogin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tela_login);
 
-        //Tira aquela barra no topo do aplicativo
         IniciarComponentes();
 
-        text_tela_cadastro.setOnClickListener(new View.OnClickListener() { //Define um evento escutador
+        //Define um evento escutador no botão "text_tela_cadastro"
+        text_tela_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Cria uma intenção ao evento escutador, manda pra tela de "formCadastro"
+                //Cria uma intenção ao evento escutador, manda pra tela de "telaCadastro"
                 Intent intent = new Intent(telaLogin.this, telaCadastro.class);
                 startActivity(intent);
             }
         });
 
+        //Define um evento escutador no botão "Entrar"
         bt_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +66,7 @@ public class telaLogin extends AppCompatActivity {
         String email = edit_email.getText().toString();
         String senha = edit_senha.getText().toString();
 
-        //recupera a instancia do firebase aut, usa o método signIn através de email e senha e logo após
+        //Recupera a instancia do firebase auth, usa o método signIn através de email e senha e logo após
         FirebaseAuth.getInstance().signInWithEmailAndPassword(email, senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {

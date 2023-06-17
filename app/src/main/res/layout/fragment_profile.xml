@@ -4,52 +4,68 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#e6f5fc"
+    android:background="@color/white"
     tools:context=".fragments.profileFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
+
     <View
-        android:id="@+id/containerProfile"
-        style="@style/containerProfile"
+        android:id="@+id/container_profile"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
         android:background="@drawable/container_profile"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/view"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:background="@drawable/barra_tela_perfil"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/containerProfile" />
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Perfil"
-        android:textStyle="bold"
-        android:textSize="25sp"
-        app:layout_constraintTop_toTopOf="@id/view"
-        app:layout_constraintBottom_toBottomOf="@id/view"
-        app:layout_constraintStart_toStartOf="@id/view"
         android:layout_marginStart="30dp"
-        android:textColor="#0d46af"
-        />
+        android:layout_marginTop="20dp"
+        android:text="Perfil"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
 
     <View
         android:id="@+id/containerUser"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="180dp"
+        android:layout_height="180dp"
+        android:layout_marginTop="90dp"
         android:background="@drawable/container_user"
-        android:layout_marginBottom="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/containerProfile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view" />
+        app:layout_constraintStart_toStartOf="@id/container_profile"
+        app:layout_constraintEnd_toEndOf="@id/container_profile"
+        app:layout_constraintTop_toTopOf="@id/container_profile"
+
+        />
+
+    <View
+        android:id="@+id/edit_ic"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:background="@drawable/edit_shape"
+        android:layout_marginTop="150dp"
+        app:layout_constraintEnd_toEndOf="@id/containerUser"
+        app:layout_constraintTop_toTopOf="@id/containerUser"
+        app:layout_constraintBottom_toBottomOf="@id/containerUser"
+        />
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/edit_ic"
+        app:layout_constraintStart_toStartOf="@id/edit_ic"
+        app:layout_constraintEnd_toEndOf="@id/edit_ic"
+        app:layout_constraintTop_toTopOf="@id/edit_ic"
+        app:layout_constraintBottom_toBottomOf="@id/edit_ic"
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -62,29 +78,57 @@
         app:layout_constraintTop_toTopOf="@id/containerUser" />
 
     <TextView
+        android:id="@+id/Nome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome"
+        android:textColor="#929ca5"
+        android:textSize="18sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintTop_toBottomOf="@id/container_profile"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+    <TextView
         android:id="@+id/NomeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:text="-"
-        android:textColor="@color/white"
-        android:textSize="40sp"
+        android:textColor="@color/black"
         android:textStyle="bold"
+        android:textSize="18sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/containerUser"
+        app:layout_constraintTop_toBottomOf="@id/Nome"
         />
-
 
     <View
-        android:id="@+id/container_info"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        app:layout_constraintTop_toBottomOf="@id/containerProfile"
-        android:background="@drawable/tela_perfil"
-
+        android:layout_height="2dp"
+        android:background="#d8d8d8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/NomeUser"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         />
 
+    <TextView
+        android:id="@+id/Email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#929ca5"
+        android:textSize="18sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@id/Nome"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
     <TextView
         android:id="@+id/EmailUser"
@@ -92,44 +136,166 @@
         android:layout_height="wrap_content"
         android:text="-"
         android:textColor="@color/black"
-        android:layout_marginEnd="30dp"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="@id/container_info"
-        app:layout_constraintTop_toTopOf="@id/container_info"
-        app:layout_constraintBottom_toBottomOf="@id/container_info"
+        app:layout_constraintTop_toBottomOf="@id/Email"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d8d8d8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/EmailUser"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
         />
 
     <TextView
+        android:id="@+id/Telefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="Telefone"
         android:textColor="#929ca5"
         android:textSize="18sp"
-        android:layout_marginStart="30dp"
-        app:layout_constraintStart_toStartOf="@id/container_info"
-        app:layout_constraintBottom_toBottomOf="@id/container_info"
-        app:layout_constraintTop_toTopOf="@id/container_info"
-
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@id/Email"
+        app:layout_constraintStart_toStartOf="parent"
         />
 
+    <TextView
+        android:id="@+id/TelefoneUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/Telefone"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d8d8d8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/TelefoneUser"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/Nascimento"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data de Nascimento"
+        android:textColor="#929ca5"
+        android:textSize="18sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@id/Telefone"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/NascimentoUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/Nascimento"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d8d8d8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/NascimentoUser"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        />
+
+    <TextView
+        android:id="@+id/Sexo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Gênero"
+        android:textColor="#929ca5"
+        android:textSize="18sp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="55dp"
+        app:layout_constraintTop_toBottomOf="@id/Nascimento"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/SexoUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="5dp"
+        android:textSize="18sp"
+        app:layout_constraintTop_toBottomOf="@id/Sexo"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="#d8d8d8"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/SexoUser"
+        android:layout_marginEnd="40dp"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="10dp"
+        />
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/bt_deslogar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:layout_marginBottom="50dp"
-        android:padding="15dp"
-        android:textSize="20sp"
-        android:text="Deslogar"
-        android:textColor="#0d46af"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
         android:background="@drawable/button_deslogar"
+        android:text="Sair"
+        android:textColor="#0d46af"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:drawableRight="@drawable/ic_logoff"
+        android:layout_margin="15dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:layout_constraintTop_toBottomOf="@id/SexoUser"
+        android:background="@drawable/teste"
+        android:layout_marginTop="25dp"
         />
 
 

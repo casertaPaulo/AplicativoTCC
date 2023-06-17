@@ -43,5 +43,7 @@ dependencies {
     implementation "com.google.firebase:firebase-auth-ktx"
     implementation "com.google.firebase:firebase-firestore-ktx"
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.3.0'
+
 
 }

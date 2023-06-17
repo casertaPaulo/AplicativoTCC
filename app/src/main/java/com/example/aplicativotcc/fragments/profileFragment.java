@@ -20,7 +20,7 @@ import com.google.firebase.firestore.FirebaseFirestoreException;
 
 public class profileFragment extends Fragment {
 
-    private TextView NomeUser, EmailUser;
+    private TextView NomeUser, EmailUser, TelefoneUser, NascimentoUser, SexoUser;
     private Button bt_deslogar;
     //Inicializa o Firebase com o nome db com a instância do mesmo
     FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -32,6 +32,10 @@ public class profileFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_profile, container, false);
         NomeUser = view.findViewById(R.id.NomeUser);
         EmailUser = view.findViewById(R.id.EmailUser);
+        TelefoneUser = view.findViewById(R.id.TelefoneUser);
+        NascimentoUser = view.findViewById(R.id.NascimentoUser);
+        SexoUser = view.findViewById(R.id.SexoUser);
+
         bt_deslogar = view.findViewById(R.id.bt_deslogar);
 
         //define um evento escutador que verifica se o botão deslogar foi acionado e depois cria uma intenção que nos manda para a tela de login
@@ -54,6 +58,7 @@ public class profileFragment extends Fragment {
 
         usuarioID = FirebaseAuth.getInstance().getCurrentUser().getUid();
         String email = FirebaseAuth.getInstance().getCurrentUser().getEmail();
+
         DocumentReference documentReference = db.collection("Usuários").document(usuarioID);
         documentReference.addSnapshotListener(new EventListener<DocumentSnapshot>() {
             @Override
@@ -61,6 +66,9 @@ public class profileFragment extends Fragment {
                 if (documentSnapshot != null){
                     NomeUser.setText(documentSnapshot.getString("nome"));
                     EmailUser.setText(email.toString());
+                    TelefoneUser.setText(documentSnapshot.getString("telefone"));
+                    NascimentoUser.setText(documentSnapshot.getString("data_de_nascimento"));
+                    SexoUser.setText(documentSnapshot.getString("sexo"));
                 }
             }
         });
