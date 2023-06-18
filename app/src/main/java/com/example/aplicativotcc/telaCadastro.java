@@ -5,25 +5,22 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.os.Message;
+import android.os.Handler;
 import android.text.Editable;
-import android.text.Html;
 import android.text.TextWatcher;
 import android.util.Log;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.BaseTransientBottomBar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -34,18 +31,9 @@ import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
-import java.util.Locale;
 import java.util.Map;
-
-
-import org.threeten.bp.LocalDate;
-import org.threeten.bp.format.DateTimeFormatter;
-import org.threeten.bp.format.DateTimeParseException;
+import java.util.Objects;
 
 public class telaCadastro extends AppCompatActivity {
 
@@ -192,12 +180,7 @@ public class telaCadastro extends AppCompatActivity {
                         edit_sexo.setText(OpSexo[which]);
                     }
                 });
-
-                //mostra o dialog criado
-                AlertDialog alertDialog = builder.create();
-                alertDialog.getWindow().setBackgroundDrawableResource(R.drawable.custom_alert);
-
-                alertDialog.show();
+                builder.show();
             }
         });
 
@@ -214,23 +197,14 @@ public class telaCadastro extends AppCompatActivity {
 
                 //Verifica se há algum campo vazio
                 if (nome.isEmpty() || email.isEmpty() || senha.isEmpty() || telefone.isEmpty() || data_nascimento.isEmpty() || sexo.isEmpty()) {
-                    Snackbar snackbar = Snackbar.make(v, mensagens[0], Snackbar.LENGTH_SHORT);
-                    snackbar.setBackgroundTint(Color.WHITE);
-                    snackbar.setTextColor(Color.BLACK);
-                    snackbar.show();
+                    exibirSnackbar(v, "Preencha todas as informações!");
                 }else{
                     if (!telefone.matches("\\(\\d{2}\\) \\d{4,5}-\\d{4}")) {
                         // Formato inválido de telefone
-                        Snackbar snackbar = Snackbar.make(v, "Telefone inválido! Utilize o formato (XX) XXXXX-XXXX", Snackbar.LENGTH_SHORT);
-                        snackbar.setBackgroundTint(Color.WHITE);
-                        snackbar.setTextColor(Color.BLACK);
-                        snackbar.show();
+                        exibirSnackbar(v, "Telefone inválido! Utilize o formato (XX) XXXXX-XXXX");
                     } else if ((!sexo.equals("Masculino") && !sexo.equals("Feminino"))) {
                         // Valor inválido para o sexo
-                        Snackbar snackbar = Snackbar.make(v, "Sexo inválido! Utilize M para masculino ou F para feminino", Snackbar.LENGTH_SHORT);
-                        snackbar.setBackgroundTint(Color.WHITE);
-                        snackbar.setTextColor(Color.BLACK);
-                        snackbar.show();
+                        exibirSnackbar(v, "Sexo inválido! Utilize M para masculino ou F para feminino");
                     } else {
                         CadastrarUsuario(v);
                     }
@@ -253,19 +227,26 @@ public class telaCadastro extends AppCompatActivity {
             public void onComplete(@NonNull Task<AuthResult> task) {
                 //task -> cadastro || se verdadeiro, cadastra e salva os dados
                 if (task.isSuccessful()){
-
                     SalvarDados();
                     Snackbar snackbar = Snackbar.make(v, mensagens[1], Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
                     snackbar.show();
+
+                    //Cria uma animação que manda para a tela principal após meio segundo
+                    new Handler().postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            TelaPrincipal();
+                        }
+                    }, 500);
                 }else{
                     String erro;
 
                     //tratar as exceções, senhas curtas, emails errados, emails repetidos etc.
                     try {
                         //tenta buscar uma exceção
-                        throw task.getException();
+                        throw Objects.requireNonNull(task.getException());
 
                         //verifica se a senha tem 6 carateres
                     }catch (FirebaseAuthWeakPasswordException e){
@@ -287,6 +268,7 @@ public class telaCadastro extends AppCompatActivity {
                     Snackbar snackbar = Snackbar.make(v, erro, Snackbar.LENGTH_SHORT);
                     snackbar.setBackgroundTint(Color.WHITE);
                     snackbar.setTextColor(Color.BLACK);
+
                     snackbar.show();
                 }
             }
@@ -337,5 +319,21 @@ public class telaCadastro extends AppCompatActivity {
         edit_sexo = findViewById(R.id.edit_sexo);
         edit_telefone = findViewById(R.id.edit_telefone);
         bt_cadastrar = findViewById(R.id.bt_cadastrar);
+    }
+
+    //Instancia um intenção onde é direcionado para a tela principal
+    private void TelaPrincipal(){
+        Intent intent = new Intent(telaCadastro.this, telaPrincipal.class);
+        startActivity(intent);
+        finish();
+    }
+
+    private void exibirSnackbar(View view, String mensagem) {
+        Snackbar snackbar = Snackbar.make(view, mensagem, Snackbar.LENGTH_SHORT);
+        Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
+        snackbar.setTextColor(Color.parseColor("#0f59e2"));
+        snackbar.setBackgroundTint(Color.WHITE);
+        snackbarLayout.setMinimumHeight(120);
+        snackbar.show();
     }
 }

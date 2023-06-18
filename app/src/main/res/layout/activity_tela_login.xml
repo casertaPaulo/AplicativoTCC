@@ -1,106 +1,127 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView
+<androidx.core.widget.NestedScrollView xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_height="match_parent"
     android:layout_width="match_parent"
     android:fillViewport="true"
-
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@color/azul_escuro"
         tools:context=".telaLogin">
 
-        <ImageView
-            android:id="@+id/logo"
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-            android:src="@drawable/logo"
-            android:layout_marginTop="40dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <View
+        <!-- Container View dos Componentes Principais -->
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/containerComponents"
             style="@style/ContainerComponents"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/logo"
-            />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
 
-        <EditText
-            android:id="@+id/edit_email"
-            android:hint="Email"
-            android:drawableRight="@drawable/ic_user"
-            android:inputType="text"
-            style="@style/Edits"
-            app:layout_constraintStart_toStartOf="@id/containerComponents"
-            app:layout_constraintEnd_toEndOf="@id/containerComponents"
-            app:layout_constraintTop_toTopOf="@id/containerComponents"
-            />
+            <!-- Logo do Aplicativo -->
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:contentDescription="@string/contentDescription"
+                android:src="@drawable/logo"
+                app:layout_constraintStart_toStartOf="@id/containerComponents"
+                app:layout_constraintEnd_toEndOf="@id/containerComponents"
+                app:layout_constraintTop_toTopOf="@id/containerComponents"/>
 
-        <EditText
-            android:id="@+id/edit_senha"
-            android:hint="Password"
-            android:textColorHint="@color/white"
-            android:textColor="@color/white"
-            android:inputType="numberPassword"
-            android:drawableRight="@drawable/ic_senha"
-            style="@style/Edits"
-            app:layout_constraintStart_toStartOf="@id/containerComponents"
-            app:layout_constraintEnd_toEndOf="@id/containerComponents"
-            app:layout_constraintTop_toBottomOf="@id/edit_email"
-            />
+            <!-- Edit's Referentes Aos Campos "Email" e "Senha" -->
+            <EditText
+                android:id="@+id/edit_email"
+                style="@style/EditsWithShadow"
+                android:hint="@string/hintEmail"
+                android:drawableEnd="@drawable/ic_user"
+                android:inputType="textEmailAddress"
+                android:autofillHints="emailAddress"
+                app:layout_constraintStart_toStartOf="@id/containerComponents"
+                app:layout_constraintEnd_toEndOf="@id/containerComponents"
+                app:layout_constraintTop_toBottomOf="@id/logo" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            style="@style/Button"
-            android:id="@+id/bt_entrar"
-            android:text="@string/entrar"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/edit_senha"
-            android:drawablePadding="8dp"
+            <EditText
+                android:id="@+id/edit_senha"
+                style="@style/EditsWithShadow"
+                android:hint="@string/hintSenha"
+                android:inputType="numberPassword"
+                android:autofillHints="password"
+                app:layout_constraintStart_toStartOf="@id/containerComponents"
+                app:layout_constraintEnd_toEndOf="@id/containerComponents"
+                app:layout_constraintTop_toBottomOf="@id/edit_email" />
+
+            <ImageView
+                android:id="@+id/mostrarSenha"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/mostrar_senha"
+                android:layout_marginEnd="20dp"
+                android:visibility="visible"
+                app:layout_constraintEnd_toEndOf="@id/edit_senha"
+                app:layout_constraintTop_toTopOf="@id/edit_senha"
+                app:layout_constraintBottom_toBottomOf="@id/edit_senha"
+                android:importantForAccessibility="no" />
+
+            <ImageView
+                android:id="@+id/ocultarSenha"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ocultar_senha"
+                android:layout_marginEnd="20dp"
+                android:visibility="invisible"
+                app:layout_constraintEnd_toEndOf="@id/edit_senha"
+                app:layout_constraintTop_toTopOf="@id/edit_senha"
+                app:layout_constraintBottom_toBottomOf="@id/edit_senha"
+                android:importantForAccessibility="no" />
+
+            <!-- Botão Entrar -->
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.ElevatedButton"
+                android:id="@+id/bt_entrar"
+                android:text="@string/textEntrar"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_senha" />
+
+            <!-- Barra de Progresso -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="invisible"
+                android:layout_marginTop="20dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text_esqueci_senha" />
+
+            <!-- Text Esqueceu Sua Senha -->
+            <TextView
+                android:id="@+id/text_esqueci_senha"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/textEsqueceuSuaSenha"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_marginTop="5dp"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/bt_entrar" />
+
+            <!-- Botão Criar Nova Conta -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/text_tela_cadastro"
+                style="@style/btn_CriarConta"
+                android:text="@string/textCadastro"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/progressBar" />
 
 
-            />
-
-        <ProgressBar
-            android:id="@+id/progressBar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:visibility="invisible"
-            android:layout_marginTop="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_esqueci_senha" />
-
-        <TextView
-            android:id="@+id/text_esqueci_senha"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Esqueceu sua senha?"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:layout_marginTop="5dp"
-            android:textSize="20dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/containerComponents"
-            />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/text_tela_cadastro"
-            android:layout_width="wrap_content"
-            style="@style/button_cadastrar"
-            android:text="@string/textCadastro"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/progressBar"
-            />
-
+        </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

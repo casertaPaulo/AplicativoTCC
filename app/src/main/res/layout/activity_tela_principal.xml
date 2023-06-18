@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".telaPrincipal">
 
+    <!-- Define o ViewPager2 para os gestos -->
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
         android:layout_width="match_parent"
@@ -16,6 +17,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/nav_host_fragment"
         app:layout_constraintTop_toTopOf="@+id/nav_host_fragment" />
 
+    <!-- Tela do Fragment -->
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/nav_host_fragment"
         android:layout_width="match_parent"
@@ -26,10 +28,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:navGraph="@navigation/navigation"
-        />
+        app:navGraph="@navigation/navigation" />
 
-
+    <!-- Linear Layout que permite a estilização do Bottom Navigation -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,9 +40,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_margin="10dp"
-
-        >
+        android:layout_margin="10dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
             android:id="@+id/bottom_navigation"
@@ -53,14 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:labelVisibilityMode="selected"
-            app:menu="@menu/bottom_navigation_menu"
-
-            />
+            app:menu="@menu/bottom_navigation_menu" />
 
     </LinearLayout>
-
-
-
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

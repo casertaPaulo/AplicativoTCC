@@ -4,9 +4,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#3CB371</color>
 
-    <!-- Cores tela login - tela cadastro - tela perfil -->
-    <color name="green_light">#90EE90</color>
-    <color name="ciano">#00CED1</color>
-    <color name="verdeclaro">#00FA9A</color>
-    <color name="cinza">#696969	</color>
+    <!-- Paleta de Cores Das Telas de Login, Principal, Fragments e Cadastro -->
+    <color name="azul_escuro">#0d46af</color>
+    <color name="azul">#0e50ca</color>
+    <color name="azul_claro">#0f59e2</color>
+
 </resources>

@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+ <!-- Container de EMAIL, LOGIN e BOTÃO ENTRAR -->
  <style name="ContainerComponents">
   <item name="android:layout_width">match_parent</item>
-  <item name="android:layout_height">350dp</item>
-  <item name="android:background">@drawable/container_components</item>
-  <item name="android:layout_margin">20dp</item>
+  <item name="android:layout_height">wrap_content</item>
  </style>
- 
+
+ <!-- Style Para Todos Os EDIT's Iguais -->
  <style name="Edits">
   <item name="android:layout_width">match_parent</item>
   <item name="android:layout_height">wrap_content</item>
-  <item name="android:background">@drawable/edit_text</item>
+  <item name="android:background">@drawable/edit_background</item>
   <item name="android:padding">20dp</item>
   <item name="android:layout_marginLeft">40dp</item>
   <item name="android:layout_marginRight">40dp</item>
@@ -23,13 +24,18 @@
   <item name="android:textStyle">bold</item>
  </style>
 
- <style name="button_cadastrar">
-  <item name="android:layout_width">match_parent</item>
+ <style name="EditsWithShadow" parent="Edits">
+  <item name="android:elevation">30dp</item>
+ </style>
+
+
+ <style name="btn_CriarConta">
+  <item name="android:layout_width">wrap_content</item>
   <item name="android:layout_height">wrap_content</item>
   <item name="android:layout_marginLeft">40dp</item>
   <item name="android:layout_marginRight">40dp</item>
   <item name="android:layout_marginTop">15dp</item>
-  <item name="android:background">@drawable/button_cadastrar</item>
+  <item name="android:background">@drawable/btn_cadastrar</item>
   <item name="android:paddingLeft">30dp</item>
   <item name="android:paddingRight">30dp</item>
   <item name="android:textAllCaps">false</item>
@@ -38,29 +44,20 @@
   <item name="android:textStyle">bold</item>
  </style>
 
- <style name="Button">
+ <style name="Widget.Material3.Button.ElevatedButton">
   <item name="android:layout_width">match_parent</item>
   <item name="android:layout_height">wrap_content</item>
+  <item name="backgroundTint">@color/white</item>
+  <item name="background">@drawable/edit_shadow</item>
   <item name="android:layout_marginLeft">40dp</item>
   <item name="android:layout_marginRight">40dp</item>
   <item name="android:layout_marginTop">15dp</item>
-  <item name="android:background">@drawable/button</item>
   <item name="android:padding">15dp</item>
   <item name="android:textAllCaps">false</item>
-  <item name="android:textColor">#0f59e2</item>
+  <item name="android:textColor">@color/azul_claro</item>
   <item name="android:textSize">23sp</item>
   <item name="android:textStyle">bold</item>
+  <item name="rippleColor">#808080</item>
  </style>
-
- <style name="containerProfile">
-  <item name="android:layout_width">match_parent</item>
-  <item name="android:layout_height">350dp</item>
-  <item name="android:topLeftRadius">0dp</item>
-  <item name="android:topRightRadius">0dp</item>
-
-  <item name="background">@drawable/container_profile</item>
- </style>
-
-
 
 </resources>

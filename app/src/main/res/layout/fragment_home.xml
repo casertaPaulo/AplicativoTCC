@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0d46af"
+    android:background="@color/azul_escuro"
     tools:context=".fragments.homeFragment">
 
     <!-- TODO: Update blank fragment layout -->
@@ -12,6 +12,6 @@
         android:layout_height="100dp"
         android:src="@drawable/ic_home"
         android:layout_gravity="center"
-        />
+        android:importantForAccessibility="no" />
 
 </FrameLayout>

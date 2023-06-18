@@ -3,13 +3,17 @@ package com.example.aplicativotcc;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.InputType;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +27,7 @@ public class telaLogin extends AppCompatActivity {
     private EditText edit_email, edit_senha;
     private Button bt_entrar, text_tela_cadastro;
     private ProgressBar progressBar;
+    private ImageView mostrarSenha, ocultarSenha;
     String[] mensagens = {"Preencha todos os campos", "Login Realizado com Sucesso!"};
 
 
@@ -33,7 +38,28 @@ public class telaLogin extends AppCompatActivity {
 
         IniciarComponentes();
 
-        //Define um evento escutador no botão "text_tela_cadastro"
+        //Evento que troca a visibilidade da senha ====================================================================
+        mostrarSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edit_senha.setInputType(InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD);
+                mostrarSenha.setVisibility(View.GONE);
+                ocultarSenha.setVisibility(View.VISIBLE);
+                edit_senha.setSelection(edit_senha.getText().length());
+            }
+        });
+
+        ocultarSenha.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                edit_senha.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
+                ocultarSenha.setVisibility(View.GONE);
+                mostrarSenha.setVisibility(View.VISIBLE);
+                edit_senha.setSelection(edit_senha.getText().length());
+            }
+        });
+
+        //Define um evento escutador no botão "text_tela_cadastro" ====================================================================
         text_tela_cadastro.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -47,6 +73,11 @@ public class telaLogin extends AppCompatActivity {
         bt_entrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //Método onde o teclado é ocultado quando BT_ENTRAR é clicado
+                InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+
+                //Joga as informações para variáveis para assim começar as verificações
                 String email = edit_email.getText().toString();
                 String senha = edit_senha.getText().toString();
 
@@ -108,7 +139,7 @@ public class telaLogin extends AppCompatActivity {
         }
     }
 
-    //mudar para tela de perfil para testes!
+    //Instancia um intenção onde é direcionado para a tela principal
     private void TelaPrincipal(){
         Intent intent = new Intent(telaLogin.this, telaPrincipal.class);
         startActivity(intent);
@@ -121,5 +152,7 @@ public class telaLogin extends AppCompatActivity {
         edit_senha = findViewById(R.id.edit_senha);
         bt_entrar  = findViewById(R.id.bt_entrar);
         progressBar = findViewById(R.id.progressBar);
+        mostrarSenha = findViewById(R.id.mostrarSenha);
+        ocultarSenha = findViewById(R.id.ocultarSenha);
     }
 }

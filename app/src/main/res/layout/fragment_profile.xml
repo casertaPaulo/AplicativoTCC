@@ -9,31 +9,30 @@
 
     <!-- TODO: Update blank fragment layout -->
 
-
+    <!-- Container View Em Azul-->
     <View
         android:id="@+id/container_profile"
         android:layout_width="match_parent"
         android:layout_height="350dp"
-        android:background="@drawable/container_profile"
+        android:background="@color/azul_escuro"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <!-- Perfil -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:text="Perfil"
+        android:text="@string/textPerfil"
         android:textColor="@color/white"
         android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
+    <!-- Container View da Foto de Usuário -->
     <View
         android:id="@+id/containerUser"
         android:layout_width="180dp"
@@ -42,10 +41,9 @@
         android:background="@drawable/container_user"
         app:layout_constraintStart_toStartOf="@id/container_profile"
         app:layout_constraintEnd_toEndOf="@id/container_profile"
-        app:layout_constraintTop_toTopOf="@id/container_profile"
+        app:layout_constraintTop_toTopOf="@id/container_profile" />
 
-        />
-
+    <!-- Botão de Editar -->
     <View
         android:id="@+id/edit_ic"
         android:layout_width="60dp"
@@ -54,8 +52,7 @@
         android:layout_marginTop="150dp"
         app:layout_constraintEnd_toEndOf="@id/containerUser"
         app:layout_constraintTop_toTopOf="@id/containerUser"
-        app:layout_constraintBottom_toBottomOf="@id/containerUser"
-        />
+        app:layout_constraintBottom_toBottomOf="@id/containerUser" />
 
     <ImageView
         android:layout_width="30dp"
@@ -65,8 +62,9 @@
         app:layout_constraintEnd_toEndOf="@id/edit_ic"
         app:layout_constraintTop_toTopOf="@id/edit_ic"
         app:layout_constraintBottom_toBottomOf="@id/edit_ic"
-        />
+        android:importantForAccessibility="no" />
 
+    <!-- Icone Foto de Usuário -->
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="50dp"
@@ -75,36 +73,38 @@
         app:layout_constraintBottom_toBottomOf="@id/containerUser"
         app:layout_constraintEnd_toEndOf="@id/containerUser"
         app:layout_constraintStart_toStartOf="@id/containerUser"
-        app:layout_constraintTop_toTopOf="@id/containerUser" />
+        app:layout_constraintTop_toTopOf="@id/containerUser"
+        android:contentDescription="@string/contentDescription" />
 
+
+    <!-- ============================== CAMPOS COM INFORMAÇÕES =============================================== -->
+    <!-- Nome do Usuário -->
     <TextView
         android:id="@+id/Nome"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome"
+        android:text="@string/textNome"
         android:textColor="#929ca5"
         android:textSize="18sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="10dp"
         app:layout_constraintTop_toBottomOf="@id/container_profile"
-        app:layout_constraintStart_toStartOf="parent"
-        />
-
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/NomeUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:text="@string/textUser"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:textSize="18sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Nome"
-        />
+        app:layout_constraintTop_toBottomOf="@id/Nome" />
 
+    <!-- Linha de Separação -->
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -114,37 +114,35 @@
         app:layout_constraintTop_toBottomOf="@id/NomeUser"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
+    <!-- Email do Usuário -->
     <TextView
         android:id="@+id/Email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email"
+        android:text="@string/textEmail"
         android:textColor="#929ca5"
         android:textSize="18sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="55dp"
         app:layout_constraintTop_toBottomOf="@id/Nome"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/EmailUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:text="@string/textUser"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/Email"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
-
+    <!-- Linha de Separação -->
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -154,36 +152,35 @@
         app:layout_constraintTop_toBottomOf="@id/EmailUser"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
+    <!-- Telefone do Usuário -->
     <TextView
         android:id="@+id/Telefone"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Telefone"
+        android:text="@string/textTelefone"
         android:textColor="#929ca5"
         android:textSize="18sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="55dp"
         app:layout_constraintTop_toBottomOf="@id/Email"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/TelefoneUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:text="@string/textUser"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/Telefone"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Linha de Separação -->
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -193,36 +190,35 @@
         app:layout_constraintTop_toBottomOf="@id/TelefoneUser"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
+    <!-- Data de Nascimento do Usuário-->
     <TextView
         android:id="@+id/Nascimento"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data de Nascimento"
+        android:text="@string/textNascimento"
         android:textColor="#929ca5"
         android:textSize="18sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="55dp"
         app:layout_constraintTop_toBottomOf="@id/Telefone"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/NascimentoUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:text="@string/textUser"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/Nascimento"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Linha de Separação -->
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -232,36 +228,35 @@
         app:layout_constraintTop_toBottomOf="@id/NascimentoUser"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
+    <!-- Gênero do Usuário -->
     <TextView
         android:id="@+id/Sexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Gênero"
+        android:text="@string/textGenero"
         android:textColor="#929ca5"
         android:textSize="18sp"
         android:layout_marginStart="40dp"
         android:layout_marginTop="55dp"
         app:layout_constraintTop_toBottomOf="@id/Nascimento"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/SexoUser"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-"
+        android:text="@string/textUser"
         android:textColor="@color/black"
         android:textStyle="bold"
         android:layout_marginStart="40dp"
         android:layout_marginTop="5dp"
         android:textSize="18sp"
         app:layout_constraintTop_toBottomOf="@id/Sexo"
-        app:layout_constraintStart_toStartOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent" />
 
+    <!-- Linha de Separação -->
     <View
         android:layout_width="match_parent"
         android:layout_height="2dp"
@@ -271,22 +266,20 @@
         app:layout_constraintTop_toBottomOf="@id/SexoUser"
         android:layout_marginEnd="40dp"
         android:layout_marginStart="40dp"
-        android:layout_marginTop="10dp"
-        />
+        android:layout_marginTop="10dp" />
 
-
-    <androidx.appcompat.widget.AppCompatButton
+    <!-- Botão de Sair -->
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/bt_deslogar"
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:background="@drawable/button_deslogar"
-        android:text="Sair"
+        android:backgroundTint="@color/white"
+        android:text="@string/btnSair"
         android:textColor="#0d46af"
+        app:rippleColor="#808080"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:drawableRight="@drawable/ic_logoff"
         android:layout_margin="15dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

@@ -1,14 +1,35 @@
 <resources>
     <string name="app_name">AplicativoTCC</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- STRINGS DOS FRAGMENTS -->
     <string name="menu_home">Home</string>
     <string name="menu_reg">Registros</string>
     <string name="menu_profile">Perfil</string>
 
-    <string name="entrar">Entrar</string>
+    <!-- STRINGS TELA LOGIN -->
+    <string name="contentDescription">Logo do Aplicativo</string>
+    <string name="hintEmail">Email</string>
+    <string name="hintSenha">Senha</string>
+    <string name="textEsqueceuSuaSenha">Esqueceu sua Senha?</string>
+    <string name="textEntrar">Entrar</string>
     <string name="textCadastro">Criar Nova Conta</string>
-    <string name="cadastrar">Cadastrar</string>
-    <string name="cadastrese">Cadastre-se!</string>
+    <string name="btnCadastrar">Cadastrar</string>
+
+    <!-- STRINGS TELA CADASTRO -->
+    <string name="hintNome">Nome</string>
+    <string name="hintTelefone">Telefone</string>
+    <string name="hintBirth">DD/MM/AA</string>
+    <string name="hintSexo">Sexo</string>
+
+    <!-- STRINGS TELA PERFIL -->
+    <string name="textPerfil">Perfil</string>
+    <string name="textUser">-</string>
+    <string name="textNome">Nome</string>
+    <string name="textEmail">Email</string>
+    <string name="textTelefone">Telefone</string>
+    <string name="textNascimento">Data de Nascimento</string>
+    <string name="textGenero">Gênero</string>
+    <string name="btnSair">SAIR</string>
 
 </resources>

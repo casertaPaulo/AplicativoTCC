@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="#1B03A3" /> <!-- Define a cor de fundo quando em foco -->
+    <corners android:radius="20dp" /> <!-- Define os cantos arredondados -->
+    <stroke android:color="@color/white" android:width="1dp"/> <!-- Define as bordas -->
+</shape>

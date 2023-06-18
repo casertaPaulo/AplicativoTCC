@@ -18,7 +18,6 @@
     <style name="ThemeOverlay.App.BottomNavigationView" parent="">
         <item name="colorOnPrimary">#0d46af</item>
         <item name="colorPrimary">@color/white</item>
-
     </style>
 
     <style name="Theme.AplicativoTCC" parent="Base.Theme.AplicativoTCC" />
