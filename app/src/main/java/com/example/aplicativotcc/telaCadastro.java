@@ -265,11 +265,7 @@ public class telaCadastro extends AppCompatActivity {
                         erro = "Erro ao cadastrar usuário! Tente novamente";
                     }
 
-                    Snackbar snackbar = Snackbar.make(v, erro, Snackbar.LENGTH_SHORT);
-                    snackbar.setBackgroundTint(Color.WHITE);
-                    snackbar.setTextColor(Color.BLACK);
-
-                    snackbar.show();
+                    exibirSnackbar(v, erro);
                 }
             }
         });
@@ -281,7 +277,6 @@ public class telaCadastro extends AppCompatActivity {
         String data_nascimento = edit_nascimento.getText().toString();
         String sexo = edit_sexo.getText().toString();
 
-
         //atribui a "db", a instancia do banco de dados Firestore
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         Map<String, Object> usuarios = new HashMap<>();
@@ -290,7 +285,6 @@ public class telaCadastro extends AppCompatActivity {
         usuarios.put("telefone", telefone);
         usuarios.put("sexo", sexo);
         usuarios.put("data_de_nascimento", data_nascimento);
-
 
         //.getCurrentUser() é o nosso usuário ATUAL || .getUid() pega o id do usuário
         //Recupera a instancia do database AUTH, pega o usuario ATUAL e pega o ID referente a esse user, logo após, atribui a "usuarioID"
@@ -331,7 +325,7 @@ public class telaCadastro extends AppCompatActivity {
     private void exibirSnackbar(View view, String mensagem) {
         Snackbar snackbar = Snackbar.make(view, mensagem, Snackbar.LENGTH_SHORT);
         Snackbar.SnackbarLayout snackbarLayout = (Snackbar.SnackbarLayout) snackbar.getView();
-        snackbar.setTextColor(Color.parseColor("#0f59e2"));
+        snackbar.setTextColor(Color.parseColor("#0d46af"));
         snackbar.setBackgroundTint(Color.WHITE);
         snackbarLayout.setMinimumHeight(120);
         snackbar.show();

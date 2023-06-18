@@ -1,5 +1,12 @@
 package com.example.aplicativotcc;
 
+import android.os.Bundle;
+import android.util.Log;
+import android.util.SparseArray;
+import android.view.GestureDetector;
+import android.view.MotionEvent;
+import android.view.View;
+
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -8,19 +15,10 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.NavDestination;
-import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.NavigationUI;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 import androidx.viewpager2.widget.ViewPager2;
-
-import android.gesture.Gesture;
-import android.os.Bundle;
-import android.util.Log;
-import android.util.SparseArray;
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
 
 import com.example.aplicativotcc.fragments.homeFragment;
 import com.example.aplicativotcc.fragments.profileFragment;
@@ -71,7 +69,6 @@ public class telaPrincipal extends AppCompatActivity {
                 viewPager.setCurrentItem(position, true);
             }
         });
-
 
         // Criar um GestureDetector
         GestureDetector gestureDetector = new GestureDetector(this, new SwipeGestureListener());
@@ -179,8 +176,6 @@ public class telaPrincipal extends AppCompatActivity {
         Integer position = fragmentPositions.get(fragmentId);
         return position != null ? position : 0;
     }
-
-
 }
 
 
