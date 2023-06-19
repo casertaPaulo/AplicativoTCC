@@ -29,7 +29,12 @@
   <item name="android:elevation">20dp</item>
  </style>
 
+ <!-- Adiciona Sombra aos Edtis -->
+ <style name="EditShadow">
 
+ </style>
+
+<!-- Estilo do Botão de Criar Conta -->
  <style name="btn_CriarConta">
   <item name="android:layout_width">wrap_content</item>
   <item name="android:layout_height">wrap_content</item>
@@ -45,6 +50,7 @@
   <item name="android:textStyle">bold</item>
  </style>
 
+ <!-- Estilo Aplicado ao Botão do Material Design -->
  <style name="Widget.Material3.Button.ElevatedButton">
   <item name="android:layout_width">match_parent</item>
   <item name="android:layout_height">wrap_content</item>
@@ -59,5 +65,18 @@
   <item name="fontFamily">@font/kanit_bold</item>
   <item name="rippleColor">#808080</item>
  </style>
+
+ <!-- Estilo Aplicado aos Cards de Informações (Views) -->
+ <style name="cardView">
+   <item name="android:background">@drawable/card_container</item>
+  <item name="android:layout_marginStart">20dp</item>
+  <item name="android:layout_marginEnd">20dp</item>
+  <item name="android:layout_marginTop">20dp</item>
+  <item name="android:elevation">20dp</item>
+  <item name="background">@drawable/edit_shadow</item>
+
+
+ </style>
+
 
 </resources>
